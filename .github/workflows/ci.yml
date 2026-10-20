@@ -28,7 +28,11 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
+
+      # `--base=./` is supplied here, at build time, so the app's own config
+      # stays exactly as authored while the GitHub Pages project subpath still
+      # resolves its assets.
+      - run: npm run build -- --base=./
 
       - uses: actions/upload-pages-artifact@v3
         with:

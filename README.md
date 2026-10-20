@@ -126,6 +126,6 @@ docs/
 **https://syedalisaleem.github.io/code-sandbox/**
 
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml) type-checks, builds and deploys
-`dist/` to GitHub Pages on every push to `main`. `base: './'` in `vite.config.ts` keeps
-the asset and worker URLs relative so the same build works from a project subpath or a
-custom domain.
+`dist/` to GitHub Pages on every push to `main`. The deploy passes `--base=./` at build
+time (see the workflow) so asset and worker URLs stay relative under the project subpath —
+the app's own `vite.config.ts` is left exactly as authored.
